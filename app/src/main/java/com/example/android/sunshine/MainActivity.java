@@ -11,6 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     "Sat - Help Trapped In Weatherstaltion - 60/51",
                     "Sun - Sunny - 81/68"
             };
+            List<String> weekForecast = new ArrayList<String>(Arrays.asList(forecastArray));
             return super.onCreateView(inflater, container, savedInstanceState);
         }
     }
