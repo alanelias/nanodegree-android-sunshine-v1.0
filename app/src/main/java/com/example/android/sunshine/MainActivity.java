@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
      *  A Placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
+
         public ArrayAdapter<String> mForecastAdapter;
 
         public PlaceholderFragment(){
@@ -104,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
 
             // attach adapter to listview
             listView.setAdapter(mForecastAdapter);
-            
-            return super.onCreateView(inflater, container, savedInstanceState);
+
+            return rootView;
         }
     }
 }
