@@ -96,7 +96,15 @@ public class MainActivity extends AppCompatActivity {
                     forecastArray
             );
 
-        
+            // getting the root view (fragment_main Layout)
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+            // get a refrance to ListView
+            ListView listView = (ListView) rootView.findViewById(R.id.listview_forecast);
+
+            // attach adapter to listview
+            listView.setAdapter(mForecastAdapter);
+            
             return super.onCreateView(inflater, container, savedInstanceState);
         }
     }
