@@ -1,15 +1,20 @@
 package com.example.android.sunshine;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,11 +22,17 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment())
+                    .commit();
+        }
     }
 
     @Override
@@ -51,12 +62,15 @@ public class MainActivity extends AppCompatActivity {
      *  A Placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
+        public ArrayAdapter<String> mForecastAdapter;
+
         public PlaceholderFragment(){
 
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            // Creating fake list of forecast status to test the adapter
             String[] forecastArray = {
                     "Today - Sunny - 88/63",
                     "Tomorrow - Foggy - 70/40",
@@ -66,7 +80,23 @@ public class MainActivity extends AppCompatActivity {
                     "Sat - Help Trapped In Weatherstaltion - 60/51",
                     "Sun - Sunny - 81/68"
             };
+
+            // converting the array of string to list
             List<String> weekForecast = new ArrayList<String>(Arrays.asList(forecastArray));
+
+            // ArrayAdapter will take the data from a the list and create the the ListView items
+            mForecastAdapter = new ArrayAdapter<String>(
+                    // getting the current context
+                    getActivity(),
+                    // id of list item item layout
+                    R.layout.list_item_forecast,
+                    // id of the text view to populate
+                    R.id.list_item_forecast_textview,
+                    // List of forecast status
+                    forecastArray
+            );
+
+        
             return super.onCreateView(inflater, container, savedInstanceState);
         }
     }
