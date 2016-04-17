@@ -1,4 +1,4 @@
-package com.example.android.sunshine;
+package com.example.android.sunshine.app;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.android.sunshine.app.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
