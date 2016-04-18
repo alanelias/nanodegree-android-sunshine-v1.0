@@ -11,6 +11,6 @@
     <!-- Value in SharedPreferences for imperial temperature unit option [CHAR LIMIT=NONE] -->
     <string name="pref_units_imperial" translatable="false">imperial</string>
 
-    <!-- Value in SharedPreferences for imperial temperature unit option [CHAR LIMIT=NONE] -->
+    <!-- Value in AndroidManifest.xml for android:authorities attribute  -->
     <string name="content_authority" translatable="false">com.example.android.sunshine.app</string>
 </resources>
