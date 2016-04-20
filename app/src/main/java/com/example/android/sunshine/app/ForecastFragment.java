@@ -18,6 +18,7 @@ package com.example.android.sunshine.app;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -134,6 +135,9 @@ public class ForecastFragment extends Fragment {
                     return null;
                 }
                 forecastJsonStr = buffer.toString();
+
+                Log.i("forecastJsonStr", forecastJsonStr );
+
             } catch (IOException e) {
                 e(LOG_TAG, "Error ", e);
                 // If the code didn't successfully get the weather data, there's no point in attemping
@@ -174,7 +178,10 @@ public class ForecastFragment extends Fragment {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_refresh) {
-            return true;
+            //Log.i("forecastJsonStr", "refreshing" );
+            FetchWeatherTask weatherTask = new FetchWeatherTask();
+            weatherTask.execute();
+            //return true;
         }
         return super.onOptionsItemSelected(item);
     }
