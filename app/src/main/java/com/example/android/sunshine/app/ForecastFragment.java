@@ -212,9 +212,6 @@ public class ForecastFragment extends Fragment {
                 resultStrs[i] = day + " - " + description + " - " + highAndLow;
             }
 
-            for (String s : resultStrs) {
-                Log.v(LOG_TAG, "Forecast entry: " + s);
-            }
             return resultStrs;
 
         }
@@ -290,7 +287,6 @@ public class ForecastFragment extends Fragment {
                 }
                 forecastJsonStr = buffer.toString();
 
-                Log.v(LOG_TAG, "Forecast string: " + forecastJsonStr);
             } catch (IOException e) {
                 Log.e(LOG_TAG, "Error ", e);
                 // If the code didn't successfully get the weather data, there's no point in attemping
@@ -310,9 +306,7 @@ public class ForecastFragment extends Fragment {
             }
 
             try {
-                String[] weatherDataFromJsonlist = getWeatherDataFromJson(forecastJsonStr, numDays);
-                Log.i(LOG_TAG, Arrays.toString(weatherDataFromJsonlist));
-                return weatherDataFromJsonlist;
+                return getWeatherDataFromJson(forecastJsonStr, numDays);
             } catch (JSONException e) {
                 Log.e(LOG_TAG, e.getMessage(), e);
                 e.printStackTrace();
