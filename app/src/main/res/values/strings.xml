@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Sunshine</string>
     <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="title_activity_detail">DetailActivity</string>
 
     <!-- Key name for temperature unit preference in SharedPreferences [CHAR LIMIT=NONE] -->
     <string name="pref_units_key" translatable="false">units</string>
