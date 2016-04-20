@@ -310,7 +310,9 @@ public class ForecastFragment extends Fragment {
             }
 
             try {
-                return getWeatherDataFromJson(forecastJsonStr, numDays);
+                String[] weatherDataFromJsonlist = getWeatherDataFromJson(forecastJsonStr, numDays);
+                Log.i(LOG_TAG, Arrays.toString(weatherDataFromJsonlist));
+                return weatherDataFromJsonlist;
             } catch (JSONException e) {
                 Log.e(LOG_TAG, e.getMessage(), e);
                 e.printStackTrace();
