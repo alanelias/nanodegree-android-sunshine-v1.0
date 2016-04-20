@@ -5,6 +5,8 @@
 
     <string name="title_activity_detail">DetailActivity</string>
 
+    <string name="title_activity_settings">Settings</string>
+
     <!-- Key name for temperature unit preference in SharedPreferences [CHAR LIMIT=NONE] -->
     <string name="pref_units_key" translatable="false">units</string>
 
