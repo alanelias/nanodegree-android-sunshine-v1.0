@@ -13,4 +13,7 @@
 
     <!-- Value in AndroidManifest.xml for android:authorities attribute  -->
     <string name="content_authority" translatable="false">com.example.android.sunshine.app</string>
+
+    <!-- Menu label to fetch updated weather info from the server -->
+    <string name="action_refresh" translatable="false">Refresh</string>
 </resources>
