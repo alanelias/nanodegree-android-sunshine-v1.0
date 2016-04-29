@@ -290,6 +290,8 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
 
             URL url = new URL(builtUri.toString());
 
+            Log.i(LOG_TAG, builtUri.toString());
+
             // Create the request to OpenWeatherMap, and open the connection
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
