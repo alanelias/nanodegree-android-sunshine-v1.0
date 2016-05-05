@@ -39,6 +39,8 @@ import com.example.android.sunshine.app.data.WeatherContract;
 public class ForecastFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     private ForecastAdapter mForecastAdapter;
 
+    private boolean mUseTodayLayout;
+
     private ListView mListView;
     private int mPosition = ListView.INVALID_POSITION;
 
@@ -160,6 +162,8 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
             mPosition = savedInstanceState.getInt(SELECTED_KEY);
         }
 
+        mForecastAdapter.setUseTodayLayout(mUseTodayLayout);
+
         return rootView;
     }
 
@@ -228,5 +232,12 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     @Override
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
         mForecastAdapter.swapCursor(null);
+    }
+
+    public void setUseTodayLayout(boolean useTodayLayout) {
+        mUseTodayLayout = useTodayLayout;
+        if (mForecastAdapter != null) {
+            mForecastAdapter.setUseTodayLayout(mUseTodayLayout);
+        }
     }
 }
