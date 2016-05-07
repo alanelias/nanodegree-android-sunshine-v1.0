@@ -201,7 +201,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
                 c.moveToPosition(0);
                 String posLat = c.getString(COL_COORD_LAT);
                 String posLong = c.getString(COL_COORD_LONG);
-                Uri geoLocation = Uri.parse("geo:" + posLat + "," + posLong);
+                Uri geoLocation = Uri.parse("geo:" + posLat + "," + posLong );
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(geoLocation);
